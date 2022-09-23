@@ -1,0 +1,283 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h6 class="card-title">Inscription</h6>
+      </div>
+
+      <form [formGroup]="personneForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="Inputnom">Nom</label>
+                <input
+                  formControlName="nom"
+                  [class.is-invalid]="!nom.valid && (nom.dirty || nom.touched)"
+                  type="text"
+                  class="form-control"
+                  placeholder="Saisir votre nom"
+                />
+                <div *ngIf="!nom.valid && (nom.dirty || nom.touched)">
+                  <small *ngIf="nom.errors?.['required']" class="text-danger">
+                    Veuillez fournir un nom valide.
+                  </small>
+                  <small *ngIf="nom.errors?.['minlength']" class="text-danger">
+                    Veuillez vous assurer que le nom est supérieur à un
+                    chiffres.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm rtl">
+              <div class="form-group">
+                <label for="InputnomAr">الاسم الشخصي</label>
+                <input
+                  formControlName="nomAr"
+                  [class.is-invalid]="
+                    !nomAr.valid && (nomAr.dirty || nomAr.touched)
+                  "
+                  type="text"
+                  class="form-control rtl"
+                  placeholder="ادخل الاسم الشخصي"
+                />
+                <div *ngIf="!nomAr.valid && (nomAr.dirty || nomAr.touched)">
+                  <small *ngIf="nomAr.errors?.['required']" class="text-danger">
+                    المرجوا ادخال الاسم الشخصي
+                  </small>
+                  <small
+                    *ngIf="nomAr.errors?.['minlength']"
+                    class="text-danger"
+                  >
+                    الاسم السخصي يجب ان يحتوي على حرف واحد على الاقل
+                  </small>
+
+                  <small *ngIf="nomAr.errors?.['pattern']" class="text-danger">
+                    المرجوا عدم ادراج احرف اللاتينية في الاسم السخصي
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="Inputprenom">Prenom</label>
+                <input
+                  formControlName="prenom"
+                  [class.is-invalid]="
+                    !prenom.valid && (prenom.dirty || prenom.touched)
+                  "
+                  type="text"
+                  class="form-control"
+                  placeholder="Saisir votre prénom"
+                />
+                <div *ngIf="!prenom.valid && (prenom.dirty || prenom.touched)">
+                  <small
+                    *ngIf="prenom.errors?.['required']"
+                    class="text-danger"
+                  >
+                    Veuillez fournir un prenom valide.
+                  </small>
+                  <small
+                    *ngIf="prenom.errors?.['minlength']"
+                    class="text-danger"
+                  >
+                    Veuillez vous assurer que le prenom est supérieur à un
+                    chiffres.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm rtl">
+              <div class="form-group">
+                <label for="InputprenomAr">الاسم العائلي</label>
+                <input
+                  formControlName="prenomAr"
+                  [class.is-invalid]="
+                    !prenomAr.valid && (prenomAr.dirty || prenomAr.touched)
+                  "
+                  type="text"
+                  class="form-control rtl"
+                  placeholder="ادخل الاسم العائلي"
+                />
+                <div
+                  *ngIf="
+                    !prenomAr.valid && (prenomAr.dirty || prenomAr.touched)
+                  "
+                >
+                  <small
+                    *ngIf="prenomAr.errors?.['required']"
+                    class="text-danger"
+                  >
+                    المرجوا ادخال الاسم العائلي
+                  </small>
+                  <small
+                    *ngIf="prenomAr.errors?.['minlength']"
+                    class="text-danger"
+                  >
+                    الاسم العائلي يجب ان يحتوي على حرف واحد على الاقل
+                  </small>
+
+                  <small
+                    *ngIf="prenomAr.errors?.['pattern']"
+                    class="text-danger"
+                  >
+                    المرجوا عدم ادراج احرف اللاتينية في الاسم العائلي
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="InputDateDeNaissace">Date de Naissance</label>
+            <input
+              formControlName="dateDeNaissace"
+              [class.is-invalid]="
+                !dateDeNaissace.valid &&
+                (dateDeNaissace.dirty || dateDeNaissace.touched)
+              "
+              type="date"
+              class="form-control"
+            />
+            <div
+              *ngIf="
+                !dateDeNaissace.valid &&
+                (dateDeNaissace.dirty || dateDeNaissace.touched)
+              "
+            >
+              <small
+                *ngIf="dateDeNaissace.errors?.['required']"
+                class="text-danger"
+              >
+                Veuillez fournir une date de naissance valide.
+              </small>
+
+              <small
+                *ngIf="dateDeNaissace.errors?.['InvalidDate']"
+                class="text-danger"
+              >
+                la date de naissance saisie est dans le futur.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="image">Photo</label>
+
+            <!-- <label for="image" class="btn btn-sm btn-dark form-control">
+              Sélectionnez une image
+            </label> -->
+            <input
+              type="file"
+              formControlName="image"
+              (change)="selectFile($event)"
+              id="image"
+              class="form-control"
+              [class.is-invalid]="
+                !dateDeNaissace.valid &&
+                (dateDeNaissace.dirty || dateDeNaissace.touched)
+              "
+              accept="image/*"
+            />
+            <div *ngIf="!image.valid && (image.dirty || image.touched)">
+              <small *ngIf="image.errors?.['required']" class="text-danger">
+                Veuillez fournir une image.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="InputCIN">CIN</label>
+            <input
+              formControlName="CIN"
+              [class.is-invalid]="!CIN?.valid && (CIN?.dirty || CIN?.touched)"
+              type="text"
+              class="form-control"
+              placeholder="Saisir votre CIN"
+            />
+            <div *ngIf="!CIN?.valid && (CIN?.dirty || CIN?.touched)">
+              <small *ngIf="CIN?.errors?.['required']" class="text-danger">
+                Veuillez fournir un CIN valide.
+              </small>
+              <small *ngIf="CIN?.errors?.['minlength']" class="text-danger">
+                Veuillez vous assurer que le CIN est supérieur à 7 caractères.
+              </small>
+              <small *ngIf="CIN?.errors?.['maxlength']" class="text-danger">
+                Veuillez vous assurer que le CIN est inférieur ou égal à 8
+                caractères.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Profession</label>
+
+            <select
+              class="form-control"
+              formControlName="profession"
+              [class.is-invalid]="
+                !profession.valid && (profession.dirty || profession.touched)
+              "
+            >
+              <option value="" disabled>Sélectionnez votre profession</option>
+
+              <option
+                *ngFor="let profession of listProfession"
+                [value]="profession"
+              >
+                {{ profession }}
+              </option>
+              <option value="autres">Autres</option>
+            </select>
+            <div
+              *ngIf="
+                !profession.valid && (profession.dirty || profession.touched)
+              "
+            >
+              <small
+                *ngIf="profession.errors?.['required']"
+                class="text-danger"
+              >
+                SVP! Sélectionnez une profession de la liste
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Type de carte</label>
+            <select
+              class="form-control"
+              formControlName="typeCarte"
+              [class.is-invalid]="
+                !typeCarte.valid && (typeCarte.dirty || typeCarte.touched)
+              "
+            >
+              <option value="" disabled>Sélectionnez un type</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+            </select>
+            <div
+              *ngIf="!typeCarte.valid && (typeCarte.dirty || typeCarte.touched)"
+            >
+              <small *ngIf="typeCarte.errors?.['required']" class="text-danger">
+                SVP! Sélectionnez un type de la liste.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button
+            [disabled]="personneForm.invalid"
+            type="submit"
+            class="btn btn-dark"
+          >
+            Soumettre la demande
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter_Landscape" pageWidth="243" pageHeight="153" orientation="Landscape" columnWidth="215" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="37e989e5-7875-4c34-af60-560ec7e4768c">
+	<subDataset name="products" uuid="89ff7b15-45c6-4732-a0cd-0d02809edba3">
+		<parameter name="personne" class="com.example.backend.model.Personne">
+			<defaultValueExpression><![CDATA[$P{personne}]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="personne" class="com.example.backend.model.Personne"/>
+	</subDataset>
+	<parameter name="photo" class="java.io.InputStream"/>
+	<parameter name="date" class="java.time.LocalDateTime"/>
+	<parameter name="QrCode" class="java.io.InputStream"/>
+	<parameter name="signature" class="java.io.InputStream"/>
+	<parameter name="personne" class="com.example.backend.model.Personne"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<detail>
+		<band height="125">
+			<staticText>
+				<reportElement x="0" y="10" width="215" height="10" uuid="f8f11c81-3c6f-45e4-b917-741fedfee852"/>
+				<textElement textAlignment="Center">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[CARTE PROFESSIONNELLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="215" height="10" uuid="2ed4f3da-87d4-47d2-af77-8f73cfb127e4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[البطاقة المهنية]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="41" width="35" height="10" uuid="a8fc9ebd-2b16-496c-9a0e-c881b82aabc5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الاسم العائلي:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="29" width="35" height="10" uuid="b15d049b-0b67-4b32-b2de-1d3dc9573588"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الاسم الشخصي:]]></text>
+			</staticText>
+			<image evaluationTime="Report">
+				<reportElement x="0" y="27" width="50" height="49" uuid="e2322ba4-37e2-46b8-9982-3ea5b3c08770"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[$P{photo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="175" y="67" width="40" height="10" uuid="7c5c699a-922e-46e4-8de5-a6cc659f59d6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[العنوان:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="113" width="30" height="10" uuid="c970a099-11d1-4d9f-9d62-9ebee74e7407"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="false"/>
+				</textElement>
+				<text><![CDATA[صالحة الى غاية]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="77" width="50" height="14" uuid="2d7d2726-e194-44dc-b1b9-8433f9d53bdd"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getCIN()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="15" width="50" height="11" uuid="979e71aa-f771-49e3-aee4-1b0b487790cd"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getId()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="30" width="30" height="10" uuid="ff010b7c-3f39-495e-995b-c3aff27be5d5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prenom:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="42" width="30" height="9" uuid="ed507504-57c4-4058-bc47-4cfeba64ce3c"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="41" width="50" height="10" uuid="9c36499a-21af-4302-b743-89a6a0c5b620"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getNomAr()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="29" width="50" height="10" uuid="b39c857e-1717-4a59-8101-4a9adcb74a35"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getPrenomAr()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="30" width="45" height="9" uuid="3ccfd460-eeb2-4ac2-a27a-38edba0ec86c"/>
+				<textElement textAlignment="Left">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getPrenom()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="42" width="45" height="9" uuid="a39817ec-4414-4a0f-8b72-98a8975ca547"/>
+				<textElement textAlignment="Left">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{personne}.getNom()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="100" y="85" width="38" height="25" uuid="ed3e1f0f-b2c6-4f30-9d3f-62657168bfc8"/>
+				<imageExpression><![CDATA[$P{signature}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="90" y="67" width="100" height="10" uuid="7abd74ea-212f-4c30-9747-09b554c0a7b0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA["العنوان"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="69" y="113" width="45" height="10" uuid="e7bc18aa-9698-48b8-b1f8-55e36da87723"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Valable jusqu'au ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="113" width="50" height="10" uuid="ca5bdeb7-e6aa-4d33-b9ca-d65c824d9ed7"/>
+				<textElement textAlignment="Center">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}.getDayOfMonth() + "-"+ $P{date}.getMonthValue() +"-" +$P{date}.getYear()]]></textFieldExpression>
+			</textField>
+
+		</band>
+		<band height="125">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="43" width="214" height="20" uuid="1ee0532d-4998-4ea4-921f-100cacb6894f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[البطاقة المهنية]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="73" width="50" height="50" uuid="a9f33a3a-e084-44bf-9d39-fac3822a95c0"/>
+				<imageExpression><![CDATA[$P{QrCode}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
